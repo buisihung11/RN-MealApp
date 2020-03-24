@@ -13,6 +13,7 @@ import Colors from "../constants/colors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 import UbuntuText from "../components/Text/UbuntuText";
+import CustomButton from "../components/CustomButton";
 
 const StartGameScreen = props => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -52,10 +53,9 @@ const StartGameScreen = props => {
       <Card style={styles.summaryContainer}>
         <UbuntuText isBold>You selected number:</UbuntuText>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title="START GAME"
-          onPress={() => props.onStartGame(selectedNumber)}
-        />
+        <CustomButton onPress={() => props.onStartGame(selectedNumber)}>
+          START GAME
+        </CustomButton>
       </Card>
     );
   }
@@ -67,7 +67,9 @@ const StartGameScreen = props => {
       }}
     >
       <View style={styles.screen}>
-        <Text>The game screen</Text>
+        <UbuntuText isBold customStyles={{ fontSize: 20, marginVertical: 10 }}>
+          Start game
+        </UbuntuText>
         <Card>
           <Text style={styles.title}>Select number here</Text>
           <Input

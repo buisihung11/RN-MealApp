@@ -1,10 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-const UbuntuText = ({ isBold = false, styles = {}, children }) => {
-  return <Text style={[styles.font(isBold), styles]}>{children}</Text>;
-};
-
+const UbuntuText = ({ isBold = false, customStyles = {}, children }) => (
+  <Text style={[styles.font(isBold), customStyles]}>{children}</Text>
+);
 export default UbuntuText;
 
 const styles = StyleSheet.create({

@@ -17,12 +17,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     width: "100%",
     height: 90,
-    paddingTop: 36,
+    paddingTop: 10,
     alignItems: "center",
     justifyContent: "center"
   },
   headerTitle: {
     color: "black",
-    fontSize: 18
+    fontSize: 25,
+    fontFamily: "vt",
+    lineHeight: 90
   }
 });
