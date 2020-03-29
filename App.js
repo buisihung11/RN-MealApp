@@ -4,7 +4,7 @@ import { AppLoading } from 'expo';
 import { enableScreens } from 'react-native-screens';
 import * as Font from 'expo-font';
 import { StyleSheet } from 'react-native';
-import mealNavigator from './navigation/MealNavigator';
+import MealNavigator from './navigation/MealNavigator';
 
 enableScreens(true);
 
@@ -27,7 +27,7 @@ const App = () => {
       />
     );
   }
-  return mealNavigator;
+  return <MealNavigator />;
 };
 
 export default App;
