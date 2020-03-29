@@ -81,6 +81,28 @@ const FavouriteNavigatorStack = () => (
   </Stack.Navigator>
 );
 
+const FitlerStack = () => (
+  <Stack.Navigator
+    mode="card"
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? 'orange' : '',
+      },
+      headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
+    }}
+    initialRouteName="Favorites"
+  >
+    <Stack.Screen
+      options={({ navigation }) => ({
+        title: 'Filter',
+        headerLeft: () => <DrawerButton navigation={navigation} />,
+      })}
+      name="Favorites"
+      component={FilterScreen}
+    />
+  </Stack.Navigator>
+);
+
 const tabBarOptions =
   Platform.OS === 'android'
     ? {
@@ -136,7 +158,7 @@ const AppDrawer = () => (
       }}
     >
       <Drawer.Screen name="Meals & Favorite" component={TabMealNavigator} />
-      <Drawer.Screen name="Filter" component={FilterScreen} />
+      <Drawer.Screen name="Filter" component={FitlerStack} />
     </Drawer.Navigator>
   </NavigationContainer>
 );
