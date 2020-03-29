@@ -22,6 +22,13 @@ const Tab =
     ? createMaterialBottomTabNavigator()
     : createBottomTabNavigator();
 
+const screenOptionsStack = {
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? 'orange' : '',
+  },
+  headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
+};
+
 const DrawerButton = ({ navigation }) => (
   <View style={{ paddingHorizontal: 10 }}>
     <Feather
@@ -34,15 +41,7 @@ const DrawerButton = ({ navigation }) => (
 );
 
 const MealNavigatorStack = () => (
-  <Stack.Navigator
-    mode="card"
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? 'orange' : '',
-      },
-      headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
-    }}
-  >
+  <Stack.Navigator mode="card" screenOptions={screenOptionsStack}>
     <Stack.Screen
       name="Categories"
       component={CategoriesScreen}
@@ -61,12 +60,7 @@ const MealNavigatorStack = () => (
 const FavouriteNavigatorStack = () => (
   <Stack.Navigator
     mode="card"
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? 'orange' : '',
-      },
-      headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
-    }}
+    screenOptions={screenOptionsStack}
     initialRouteName="Favorites"
   >
     <Stack.Screen
@@ -84,12 +78,7 @@ const FavouriteNavigatorStack = () => (
 const FitlerStack = () => (
   <Stack.Navigator
     mode="card"
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? 'orange' : '',
-      },
-      headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
-    }}
+    screenOptions={screenOptionsStack}
     initialRouteName="Favorites"
   >
     <Stack.Screen
