@@ -1,21 +1,51 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  StyleSheet,
+  View,
+  Platform,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from 'react-native';
 import VTTExt from './Text/VTTExt';
 
-const CategoryGridItem = ({ item, onPress }) => (
-  <View style={[styles.gridItem, { backgroundColor: item.color }]}>
-    <TouchableOpacity style={{ height: '100%' }} onPress={onPress}>
-      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-        <VTTExt
-          customStyle={{ textAlign: 'right', padding: 10, color: 'white' }}
+const CategoryGridItem = ({ item, onPress }) => {
+  let TouchCmp = TouchableOpacity;
+  if (Platform.OS === 'android' && Platform.Version >= 21) {
+    TouchCmp = TouchableNativeFeedback;
+  }
+  return (
+    <View style={[styles.gridItem]}>
+      <TouchCmp style={{ height: '100%' }} onPress={onPress}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'flex-end',
+            backgroundColor: item.color,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            borderRadius: 10,
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+          }}
         >
-          {item.title}
-        </VTTExt>
-      </View>
-    </TouchableOpacity>
-  </View>
-);
+          <VTTExt
+            customStyle={{
+              fontSize: 30,
+              textAlign: 'right',
+              padding: 10,
+              color: 'white',
+            }}
+          >
+            {item.title}
+          </VTTExt>
+        </View>
+      </TouchCmp>
+    </View>
+  );
+};
 
 export default CategoryGridItem;
 
@@ -25,13 +55,6 @@ const styles = StyleSheet.create({
     margin: 15,
     height: 150,
     borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
     elevation: 5,
   },
 });
