@@ -36,5 +36,6 @@ export default CategoriesScreen;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: 'white'
   },
 });
