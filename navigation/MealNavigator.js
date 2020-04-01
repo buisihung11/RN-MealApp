@@ -27,6 +27,12 @@ const screenOptionsStack = {
     backgroundColor: Platform.OS === 'android' ? 'orange' : '',
   },
   headerTintColor: Platform.OS === 'android' ? 'white' : 'orange',
+  headerTitleStyle: {
+    fontFamily: 'ubuntu-bold',
+  },
+  headerBackTitleStyle: {
+    fontFamily: 'ubuntu-regular',
+  },
 };
 
 const DrawerButton = ({ navigation }) => (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AppLoading } from 'expo';
 // eslint-disable-next-line import/no-unresolved
 import { enableScreens } from 'react-native-screens';
+import { Container } from 'native-base';
 import * as Font from 'expo-font';
 import { StyleSheet } from 'react-native';
 import MealNavigator from './navigation/MealNavigator';
@@ -22,12 +23,19 @@ const App = () => {
     return (
       <AppLoading
         startAsync={fetchFont}
-        onFinish={() => setAppLoaded(true)}
+        onFinish={() => {
+          console.log('Loadded font');
+          setAppLoaded(true);
+        }}
         onError={(err) => console.log(err)}
       />
     );
   }
-  return <MealNavigator />;
+  return (
+    <Container>
+      <MealNavigator />
+    </Container>
+  );
 };
 
 export default App;
