@@ -45,6 +45,16 @@ const DrawerButton = ({ navigation }) => (
     />
   </View>
 );
+const SaveFilterButton = ({ navigation }) => (
+  <View style={{ paddingHorizontal: 10 }}>
+    <Feather
+      onPress={() => navigation.openDrawer()}
+      name="save"
+      color="black"
+      size={25}
+    />
+  </View>
+);
 
 const MealNavigatorStack = () => (
   <Stack.Navigator mode="card" screenOptions={screenOptionsStack}>
