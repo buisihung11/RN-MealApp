@@ -1,5 +1,10 @@
 # This is the project for learning React-Native 
 
+## Using React Context to manage state
+## React Hooks for Logic and control state
+## Using Native base for trying 
+
+
 ## Set up
 ## Recommend to use yarn 
 ```shell
