@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Switch } from 'react-native-paper';
 import { AntDesign, Feather } from '@expo/vector-icons';
 import { H1, Toast } from 'native-base';
-import { useMealFilter } from '../../context/MealContext';
+import { useMeal } from '../../context/MealContext';
 
 const FilterSwitch = ({ value, onChange, label }) => {
   return (
@@ -21,20 +21,18 @@ const SaveFilterButton = ({ onPress }) => (
 );
 
 const FilterScreen = ({ navigation }) => {
-  const [filterState, dispatch] = useMealFilter();
+  const [{ filter }, dispatch] = useMeal();
 
-  console.log('filterState', filterState);
-
-  const [isGlutenFree, setIsGlutenFree] = useState(filterState.isGlutenFree);
-  const [isLactoseFree, setIsLactoseFree] = useState(filterState.isLactoseFree);
-  const [isVegan, setIsVegan] = useState(filterState.isVegan);
-  const [isVegetarian, setIsVegetarian] = useState(filterState.isVegetarian);
+  const [isGlutenFree, setIsGlutenFree] = useState(filter.isGlutenFree);
+  const [isLactoseFree, setIsLactoseFree] = useState(filter.isLactoseFree);
+  const [isVegan, setIsVegan] = useState(filter.isVegan);
+  const [isVegetarian, setIsVegetarian] = useState(filter.isVegetarian);
 
   const saveFilter = useCallback(() => {
     // dispatch to store
     dispatch({
       type: 'SET_FILTERS',
-      filters: { isGlutenFree, isLactoseFree, isVegan, isVegetarian },
+      filter: { isGlutenFree, isLactoseFree, isVegan, isVegetarian },
     });
     Toast.show({
       text: 'Filters were set',
