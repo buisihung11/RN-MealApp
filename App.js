@@ -6,7 +6,7 @@ import { Container } from 'native-base';
 import * as Font from 'expo-font';
 import { StyleSheet } from 'react-native';
 import MealNavigator from './navigation/MealNavigator';
-import { MealFilterProvider } from './context/MealContext';
+import { MealProvider } from './context/MealContext';
 
 enableScreens(true);
 
@@ -36,9 +36,9 @@ const App = () => {
   }
   return (
     <Container>
-      <MealFilterProvider>
+      <MealProvider>
         <MealNavigator />
-      </MealFilterProvider>
+      </MealProvider>
     </Container>
   );
 };
