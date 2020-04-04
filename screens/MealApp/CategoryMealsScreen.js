@@ -9,8 +9,6 @@ import MealItem from '../../components/MealItem';
 import MealList from '../../components/MealList';
 import { useMeal } from '../../context/MealContext';
 
-
-
 const CategoryMealScreen = ({ navigation, route }) => {
   const { categoryId, categoryTitle } = route.params;
   const [{ meals }] = useMeal();
@@ -21,6 +19,9 @@ const CategoryMealScreen = ({ navigation, route }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerBackTitle: categoryTitle,
+      headerBackTitleStyle: {
+        fontSize: 12,
+      },
     });
   }, [navigation, categoryTitle]);
 
