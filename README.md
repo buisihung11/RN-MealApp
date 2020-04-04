@@ -18,5 +18,5 @@ yarn start
 - [x] Get the meal data from context ✅
 - [x] Filter the meal data in context when filters change ✅
 - [x] Change back title in mealDetailScreen that show the category meal screen (iOS) ✅
-- [] Add favourite meal function to store ( FavoriteMealContext )
-- [] Change favorite icon dynamicaly
+- [ ] Add favourite meal function to store ( FavoriteMealContext )
+- [ ] Change favorite icon dynamicaly
