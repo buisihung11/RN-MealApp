@@ -14,6 +14,8 @@ const fetchFont = () =>
   Font.loadAsync({
     'ubuntu-regular': require('./assets/fonts/UbuntuMono-Regular.ttf'),
     'ubuntu-bold': require('./assets/fonts/UbuntuMono-Bold.ttf'),
+    Roboto: require('native-base/Fonts/Roboto.ttf'),
+    Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
     vt: require('./assets/fonts/VT323-Regular.ttf'),
   });
 
