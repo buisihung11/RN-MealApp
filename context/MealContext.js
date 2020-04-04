@@ -34,10 +34,7 @@ const useMealFilter = () => {
 
   const [state, dispatch] = context;
 
-  return {
-    state,
-    dispatch,
-  };
+  return [state, dispatch];
 };
 
 export { MealFilterProvider, useMealFilter };
