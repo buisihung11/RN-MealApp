@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Switch } from 'react-native-paper';
 import { AntDesign, Feather } from '@expo/vector-icons';
-import { H1 } from 'native-base';
+import { H1, Toast } from 'native-base';
 import { useMealFilter } from '../../context/MealContext';
 
 const FilterSwitch = ({ value, onChange, label }) => {
@@ -21,7 +21,7 @@ const SaveFilterButton = ({ onPress }) => (
 );
 
 const FilterScreen = ({ navigation }) => {
-  const { state: filterState, dispatch } = useMealFilter();
+  const [filterState, dispatch] = useMealFilter();
 
   console.log('filterState', filterState);
 
@@ -35,6 +35,11 @@ const FilterScreen = ({ navigation }) => {
     dispatch({
       type: 'SET_FILTERS',
       filters: { isGlutenFree, isLactoseFree, isVegan, isVegetarian },
+    });
+    Toast.show({
+      text: 'Filters were set',
+      buttonText: 'Okay',
+      type: 'success',
     });
   }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
 

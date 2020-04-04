@@ -14,6 +14,7 @@ import CategoryMealsScreen from '../screens/MealApp/CategoryMealsScreen';
 import FavoritesScreen from '../screens/MealApp/FavoritesScreen';
 import FilterScreen from '../screens/MealApp/FilterScreen';
 import MealDetailScreen from '../screens/MealApp/MealDetailScreen';
+import { Root } from 'native-base';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -155,17 +156,19 @@ const TabMealNavigator = () => {
 };
 
 const AppDrawer = () => (
-  <NavigationContainer>
-    <Drawer.Navigator
-      drawerContentOptions={{
-        activeBackgroundColor: 'orange',
-        activeTintColor: 'white',
-      }}
-    >
-      <Drawer.Screen name="Meals & Favorite" component={TabMealNavigator} />
-      <Drawer.Screen name="Filter" component={FitlerStack} />
-    </Drawer.Navigator>
-  </NavigationContainer>
+  <Root>
+    <NavigationContainer>
+      <Drawer.Navigator
+        drawerContentOptions={{
+          activeBackgroundColor: 'orange',
+          activeTintColor: 'white',
+        }}
+      >
+        <Drawer.Screen name="Meals & Favorite" component={TabMealNavigator} />
+        <Drawer.Screen name="Filter" component={FitlerStack} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  </Root>
 );
 
 export default AppDrawer;
